@@ -18,7 +18,13 @@ const Footer = () => {
       }}
     >
       <Grid container>
-        <Grid item xs={12} md={12} lg={3}>
+        <Grid
+          item
+          xs={12}
+          md={3}
+          lg={3}
+          display={{ xs: "none", md: "initial", lg: "initial" }}
+        >
           <Stack
             direction="row"
             spacing={4}
@@ -44,7 +50,7 @@ const Footer = () => {
             </Link>
           </Stack>
         </Grid>
-        <Grid item xs={12} md={12} lg={6}>
+        <Grid item xs={12} md={6} lg={6}>
           <Stack
             direction="row"
             spacing={4}
@@ -67,7 +73,13 @@ const Footer = () => {
             </Link>
           </Stack>
         </Grid>
-        <Grid item xs={12} md={12} lg={3}>
+        <Grid
+          item
+          xs={12}
+          md={3}
+          lg={3}
+          display={{ lg: "initial", md: "initial", xs: "none" }}
+        >
           <Stack
             direction="row"
             spacing={4}

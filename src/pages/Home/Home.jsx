@@ -15,6 +15,7 @@ const Home = () => {
         justifyContent="center"
         alignItems="center"
         height="100%"
+        width={"100%"}
         sx={{
           flexDirection: "column",
           pt: 12,
@@ -24,11 +25,13 @@ const Home = () => {
           direction="column"
           spacing={4}
           alignItems="center"
-          sx={{ mb: 2, position: "relative", top: "-20%", minWidth: 600 }}
+          width="90%"
+          maxWidth={600}
+          sx={{ mb: 2, position: "relative", top: "-20%" }}
         >
           <img
             src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
-            style={{ maxWidth: 300 }}
+            style={{ maxWidth: "272px", width: "60%" }}
           />
           <SearchFIeld />
           <ButtonGroup />
