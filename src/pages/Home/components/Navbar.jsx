@@ -22,9 +22,9 @@ const Navbar = () => {
           elevation={0}
           color="white"
           sx={{
+            position: "fixed",
             fontFamily: "roboto",
             textTransform: "capitalize",
-            minWidth: "300px",
           }}
         >
           <Toolbar display="flex">
