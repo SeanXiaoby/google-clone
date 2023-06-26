@@ -18,6 +18,9 @@ const SearchFIeld = () => {
         width: "100%",
         borderRadius: "999px",
         border: `1px solid ${theme.palette.grey[300]}`,
+        "&:hover": {
+          boxShadow: `0 2px 5px 1px ${theme.palette.grey[200]}`,
+        },
       }}
     >
       <IconButton sx={{ p: "10px" }} aria-label="menu" disabled>
