@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 
 const Home = () => {
   return (
-    <Box height={"100vh"} sx={{}}>
+    <Box height={"100vh"} display="flex" flexDirection="column">
       <CSSBaseline />
       <Navbar />
       <Box

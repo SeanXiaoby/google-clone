@@ -8,10 +8,10 @@ const Footer = () => {
   const theme = useTheme();
   return (
     <Box
-      display={{ lg: "flex", md: "flex", sm: "flex", xs: "none" }}
+      display={{ lg: "flex", md: "flex", sm: "flex", xs: "flex" }}
       sx={{
         width: "100%",
-        position: "fixed",
+        // position: "fixed",
         bottom: 0,
         p: 1,
         backgroundColor: theme.palette.grey[100],

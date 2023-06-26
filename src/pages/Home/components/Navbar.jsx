@@ -22,7 +22,7 @@ const Navbar = () => {
           elevation={0}
           color="white"
           sx={{
-            position: "fixed",
+            // position: "fixed",
             fontFamily: "roboto",
             textTransform: "capitalize",
           }}
