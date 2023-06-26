@@ -8,7 +8,7 @@ const Footer = () => {
   const theme = useTheme();
   return (
     <Box
-      display={{ lg: "flex", md: "flex", sm: "none" }}
+      display={{ lg: "flex", md: "flex", sm: "flex", xs: "none" }}
       sx={{
         width: "100%",
         position: "fixed",
@@ -23,7 +23,7 @@ const Footer = () => {
           xs={12}
           md={3}
           lg={3}
-          display={{ xs: "none", md: "initial", lg: "initial" }}
+          display={{ xs: "none", md: "none", lg: "initial" }}
         >
           <Stack
             direction="row"
@@ -50,7 +50,7 @@ const Footer = () => {
             </Link>
           </Stack>
         </Grid>
-        <Grid item xs={12} md={6} lg={6}>
+        <Grid item xs={12} md={12} lg={6}>
           <Stack
             direction="row"
             spacing={4}
@@ -78,7 +78,7 @@ const Footer = () => {
           xs={12}
           md={3}
           lg={3}
-          display={{ lg: "initial", md: "initial", xs: "none" }}
+          display={{ lg: "initial", md: "none", xs: "none" }}
         >
           <Stack
             direction="row"
