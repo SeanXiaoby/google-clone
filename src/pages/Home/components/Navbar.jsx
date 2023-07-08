@@ -10,6 +10,7 @@ import {
 import { useTheme } from "@emotion/react";
 import AppsIcon from "@mui/icons-material/Apps";
 import { Stack } from "@mui/system";
+import ToggleThemeContainer from "../../../components/ToggleThemeMode";
 
 const Navbar = () => {
   const theme = useTheme();
@@ -25,6 +26,10 @@ const Navbar = () => {
             // position: "fixed",
             fontFamily: "roboto",
             textTransform: "capitalize",
+            backgroundColor:
+              theme.palette.mode === "dark"
+                ? theme.palette.background.google.main
+                : theme.palette.background.default,
           }}
         >
           <Toolbar display="flex">
@@ -35,6 +40,11 @@ const Navbar = () => {
               <Button color="inherit" sx={{ textTransform: "capitalize" }}>
                 Store
               </Button>
+              <ToggleThemeContainer>
+                <Button color="inherit" sx={{ textTransform: "capitalize" }}>
+                  Theme
+                </Button>
+              </ToggleThemeContainer>
             </Stack>
             <Stack direction="row">
               <Button color="inherit" sx={{ textTransform: "capitalize" }}>

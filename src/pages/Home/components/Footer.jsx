@@ -115,7 +115,10 @@ const Footer = () => {
         // position: "fixed",
         bottom: 0,
         p: 1,
-        backgroundColor: theme.palette.grey[100],
+        backgroundColor:
+          theme.palette.mode === "dark"
+            ? theme.palette.background.google.dark
+            : theme.palette.grey[100],
       }}
     >
       <Box

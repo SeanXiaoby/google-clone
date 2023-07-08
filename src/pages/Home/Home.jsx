@@ -4,10 +4,23 @@ import SearchFIeld from "./components/SearchFIeld";
 import { Box, Stack } from "@mui/system";
 import ButtonGroup from "./components/ButtonGroup";
 import Footer from "./components/Footer";
+import { useTheme } from "@emotion/react";
 
 const Home = () => {
+  const theme = useTheme();
+  console.log(theme.palette.background.google.main);
   return (
-    <Box height={"100vh"} display="flex" flexDirection="column">
+    <Box
+      height={"100vh"}
+      display="flex"
+      flexDirection="column"
+      sx={{
+        backgroundColor:
+          theme.mode === "dark"
+            ? theme.palette.background.google.main
+            : theme.palette.background.default,
+      }}
+    >
       <CSSBaseline />
       <Navbar />
       <Box
@@ -19,6 +32,10 @@ const Home = () => {
         sx={{
           flexDirection: "column",
           pt: 12,
+          backgroundColor:
+            theme.palette.mode === "dark"
+              ? theme.palette.background.google.main
+              : theme.palette.background.default,
         }}
       >
         <Stack
@@ -30,7 +47,11 @@ const Home = () => {
           sx={{ mb: 2, position: "relative", top: "-20%" }}
         >
           <img
-            src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+            src={
+              theme.palette.mode === "dark"
+                ? "https://www.google.com/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png"
+                : "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+            }
             style={{ maxWidth: "272px", width: "60%" }}
           />
           <SearchFIeld />
