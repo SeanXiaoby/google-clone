@@ -3,7 +3,11 @@ import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
 import { useTheme } from "@emotion/react";
+import { useState } from "react";
+import PropTypes from "prop-types";
+import SettingMenu from "./SettingMenu";
 
+// Left group of components in footer
 const FooterLeftGroup = () => {
   const theme = useTheme();
   return (
@@ -27,25 +31,26 @@ const FooterLeftGroup = () => {
         color: theme.palette.grey[600],
       }}
     >
-      <Link href="#" color="inherit" underline="hover">
+      <Link color="inherit" underline="hover" sx={{ cursor: "pointer" }}>
         Advertising
       </Link>
-      <Link href="#" color="inherit" underline="hover">
+      <Link color="inherit" underline="hover" sx={{ cursor: "pointer" }}>
         Business
       </Link>
       <Link
-        href="#"
+        href="https://github.com/SeanXiaoby/google-clone"
         color="inherit"
         underline="hover"
-        sx={{ whiteSpace: "nowrap" }}
+        sx={{ cursor: "pointer" }}
       >
-        How Search works
+        How Gooloo works
       </Link>
     </Stack>
   );
 };
 
-const FooterRightGroup = () => {
+// Right group of components in footer
+const FooterRightGroup = ({ handleClickSetting }) => {
   const theme = useTheme();
   return (
     <Stack
@@ -69,19 +74,25 @@ const FooterRightGroup = () => {
         maxWidth: "100%",
       }}
     >
-      <Link href="#" color="inherit" underline="hover">
+      <Link color="inherit" underline="hover" sx={{ cursor: "pointer" }}>
         Privacy
       </Link>
-      <Link href="#" color="inherit" underline="hover">
+      <Link color="inherit" underline="hover" sx={{ cursor: "pointer" }}>
         Terms
       </Link>
-      <Link href="#" color="inherit" underline="hover">
+      <Link
+        color="inherit"
+        underline="hover"
+        onClick={handleClickSetting}
+        sx={{ cursor: "pointer" }}
+      >
         Settings
       </Link>
     </Stack>
   );
 };
 
+// Center group of components in footer
 const FooterCenterGroup = () => {
   const theme = useTheme();
   return (
@@ -107,6 +118,16 @@ const FooterCenterGroup = () => {
 
 const Footer = () => {
   const theme = useTheme();
+
+  const [settingMenuAnchorEl, setSettingMenuAnchorEl] = useState(null);
+  const openSettingMenu = Boolean(settingMenuAnchorEl);
+  const handleClickSetting = (event) => {
+    setSettingMenuAnchorEl(event.currentTarget);
+  };
+  const handleCloseSettingMenu = () => {
+    setSettingMenuAnchorEl(null);
+  };
+
   return (
     <Box
       display={{ lg: "flex", md: "flex", sm: "flex", xs: "flex" }}
@@ -121,6 +142,17 @@ const Footer = () => {
             : theme.palette.grey[100],
       }}
     >
+      {/* Setting Menu component */}
+      <SettingMenu
+        open={openSettingMenu}
+        anchorEl={settingMenuAnchorEl}
+        handleCloseMenu={handleCloseSettingMenu}
+      />
+
+      {/* Footer component
+       * The first Box component is used to display footer in desktop and tablet
+       * The second Box component is used to display footer in mobile
+       */}
       <Box
         display={{
           xs: "none",
@@ -137,11 +169,11 @@ const Footer = () => {
           <Grid item xs={12} md={3} lg={3}>
             <FooterLeftGroup />
           </Grid>
-          <Grid item xs={12} md={12} lg={6}>
+          <Grid item xs={12} md={6} lg={6}>
             <FooterCenterGroup />
           </Grid>
           <Grid item xs={12} md={3} lg={3}>
-            <FooterRightGroup />
+            <FooterRightGroup handleClickSetting={handleClickSetting} />
           </Grid>
         </Grid>
       </Box>
@@ -167,12 +199,16 @@ const Footer = () => {
           </Grid>
 
           <Grid item xs={12} md={6} lg={6}>
-            <FooterRightGroup />
+            <FooterRightGroup handleClickSetting={handleClickSetting} />
           </Grid>
         </Grid>
       </Box>
     </Box>
   );
+};
+
+FooterRightGroup.propTypes = {
+  handleClickSetting: PropTypes.func,
 };
 
 export default Footer;
