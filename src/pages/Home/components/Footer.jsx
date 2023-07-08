@@ -23,7 +23,7 @@ const Footer = () => {
           xs={12}
           md={3}
           lg={3}
-          display={{ xs: "none", md: "none", lg: "initial" }}
+          display={{ xs: "none", lg: "initial" }}
         >
           <Stack
             direction="row"
@@ -45,7 +45,12 @@ const Footer = () => {
             <Link href="#" color="inherit" underline="hover">
               Business
             </Link>
-            <Link href="#" color="inherit" underline="hover">
+            <Link
+              href="#"
+              color="inherit"
+              underline="hover"
+              sx={{ whiteSpace: "nowrap" }}
+            >
               How Search works
             </Link>
           </Stack>
